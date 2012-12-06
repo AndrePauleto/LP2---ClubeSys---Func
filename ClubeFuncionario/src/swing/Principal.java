@@ -11,7 +11,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import swing.action.JCadastrarMenuAction;
-import swing.action.JListarMenuAction;
 import swing.action.JSobreMenuAction;
 
 public class Principal {
@@ -45,10 +44,7 @@ public class Principal {
 		menubar.add(help);		
 		
 		Action cadastrarAction = new JCadastrarMenuAction(principal, cards);		
-		funcionario.add(cadastrarAction);
-		
-		Action listarAction = new JListarMenuAction(principal, cards);
-		funcionario.add(listarAction);
+		funcionario.add(cadastrarAction);		
 		
 		Action sobreAction = new JSobreMenuAction(frame);
 		help.add(sobreAction);

@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.Funcionario;
+import swing.Principal;
 import dao.FuncionarioDAO;
 
 public class JCadastrarFuncionarioAction extends AbstractAction{
@@ -44,20 +45,8 @@ public class JCadastrarFuncionarioAction extends AbstractAction{
 	public void actionPerformed(ActionEvent e) {
 		
 		
-		//try {
+		try {
 			getCampos();
-
-			System.out.println("Nome: " + nome);
-			System.out.println("Morada: " + morada);
-			System.out.println("Idade: " + idade);
-			System.out.println("Login: " + login);
-			System.out.println("Senha: " + senha);
-			
-			System.out.println("Nome: " + txtNome);
-			System.out.println("Morada: " + txtMorada);
-			System.out.println("Idade: " + txtIdade);
-			System.out.println("Login: " + txtUsuario);
-			System.out.println("Senha: " + txtSenha);
 			
 			FuncionarioDAO funcDao = new FuncionarioDAO();
 			funcDao.conectar();
@@ -68,34 +57,23 @@ public class JCadastrarFuncionarioAction extends AbstractAction{
 			funcDao.insert(func);
 			
 			funcDao.desconectar();
-			
-			
-			/*FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-			System.out.println("Instanciou DAOFunc");
-			funcionarioDAO.conectar();
-			System.out.println("Conectou");
-			Funcionario f = new Funcionario(1, nome, morada, idade,
-					login, senha);
-			System.out.println("Instanciou Funcionario");
-			System.out.println("");
-			System.out.println(f);
-			funcionarioDAO.insert(f);
-			System.out.println("Inseriu");
-			funcionarioDAO.desconectar();*/
 
 			limpaCampos();
+			
+			if (principal != null) {
+				cards.show(principal, Principal.PRINCIPAL);
+			}
 
 			JOptionPane.showMessageDialog(null,
 					"Funcionário Cadastrado com Sucesso", "Aviso",
 					JOptionPane.INFORMATION_MESSAGE);
 
-		/*} catch (Exception e2) {
+		} catch (Exception e2) {
 
 			JOptionPane.showMessageDialog(null,
 					"Não foi possível cadastrar funcionário", "Error",
 					JOptionPane.ERROR_MESSAGE);
-		}*/
-
+		}
 	}
 	
 	private void getCampos() {

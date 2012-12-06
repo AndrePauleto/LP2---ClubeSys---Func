@@ -1,11 +1,14 @@
 package swing;
 
 import java.awt.CardLayout;
+import java.awt.GridLayout;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import swing.action.JCadastrarFuncionarioAction;
@@ -20,10 +23,13 @@ public class JCadastrarFuncionarioPanel extends JPanel {
 	private JTextField txtSenha;
 
 	public JCadastrarFuncionarioPanel(JPanel principal, CardLayout cards) {
+		
+		//principal = new JPanel(new GridLayout(6, 1));	
+				
 		add(new JLabel("Nome: "));
 		txtNome = new JTextField(15);
 		add(txtNome);
-
+		
 		add(new JLabel("Morada: "));
 		txtMorada = new JTextField(15);
 		add(txtMorada);
@@ -37,7 +43,7 @@ public class JCadastrarFuncionarioPanel extends JPanel {
 		add(txtUsuario);
 
 		add(new JLabel("Senha: "));
-		txtSenha = new JTextField(15);
+		txtSenha = new JPasswordField(15);
 		add(txtSenha);
 
 		add(new JButton(new JCadastrarFuncionarioAction(principal, cards,
